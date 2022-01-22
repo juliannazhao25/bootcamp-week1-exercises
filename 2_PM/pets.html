@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="styles.css" rel="stylesheet">
+        <title>Pets</title>
+        <style>
+            /* Style popover buttoms */
+            [data-toggle="popover"] {
+                background-color: #ffffff;
+                border-color: #ffffff;
+            }
+        </style>
+        <script>
+            // Initialize all popovers on page
+            $(document).ready(function(){
+                $('[data-toggle="popover"]').popover();
+            });
+            
+            // Wait for DOM content to load
+            document.addEventListener('DOMContentLoaded', function() {
+                // Get all elements with class "btn btn-secondary"
+                let buttons = document.querySelectorAll('[data-toggle="popover"]');
+                // Add event listeners to each button
+                for (let i = 0; i < buttons.length; i++) {
+                    buttons[i].addEventListener('click', function() {
+                        buttons[i].popover('show')
+                    })
+                }
+            })
+        </script>
+    </head>
+    <body>
+        <div class="topdivider"> </div>
+        
+        <div class="navbar">
+            <div>
+              <a class="nav-link" href="index.html">Home</a>
+            </div>
+            <div>
+              <a class="nav-link" href="hobby.html">Hobbies</a>
+            </div>
+            <div>
+              <a class="nav-link" href="favorite.html">Favorites</a>
+            </div>
+            <div>
+              <a class="nav-link active" href="pets.html">Pets</a>
+            </div>
+          </div>
+
+        <!-- Main Heading -->
+        <h1>My Non-Human Family</h1>
+        <hr>
+
+        <!-- Main Picture -->
+        <img src="./images/three_dogs.jpg" width=60% alt="all dogs">
+        <hr>
+
+        <!-- Bootstraps Popovers -->
+        <table>
+            <col width=30% />
+            <col width=30% />
+            <col width=35% />
+            <thead>
+                <tr>
+                    <td>
+                        <h3 style="color:#04AA6D; font-size: 30px; margin:0; margin-bottom: 10px;">Holly</h3>
+                    </td>
+                    <td>
+                        <h3 style="color:#04AA6D; font-size: 30px; margin:0; margin-bottom: 10px;">Dash</h3>
+                    </td>
+                    <td>
+                        <h3 style="color:#04AA6D; font-size: 30px; margin:0; margin-bottom: 10px;">Bitsy</h3>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><img alt="holly" src="./images/holly_squirrel.jpg" width=100%></td>
+                    <td><img alt="dash" src="./images/dash.jpg" width=100%></td>
+                    <td><img alt="bitsy" src="./images/bitsy_pillow.jpg" width=100%></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p style="margin: 10px; margin-bottom: 50px;">The last to join the family but the elder sister of the two other puppies, nine-year-old Holly is actually a silly goose who is always pulling off some trick to make everyone's day a little better, like balancing a toy squirrel on her head.</p>
+                    </td>
+                    <td>
+                        <p style="margin: 10px; margin-bottom: 65px;">An old man at heart, Dasheroo goes to bed at reasonable hours (8 P.M. each night) and seeks out the warmest, comfiest spots when the family spends the night outside.</p>
+                    </td>
+                    <td>
+                        <p style="margin: 10px; margin-bottom: 50px;">The youngest of all three, Princess Bitsy is always very picky about the way she presents herself (except when she is begging for treats). Here she is resting after carefully finding the perfect spot on the pillow she knocked to the ground.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

@@ -1,0 +1,120 @@
+body {
+    margin-right: 10%;
+    margin-left: 10%;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+table {
+    margin-top: 5vh;
+    table-layout:fixed;
+}
+
+ul {
+    list-style-position: inside;
+}
+
+li {
+    margin-bottom: 7px;
+}
+
+.topdivider {
+    height: 30px;
+    background-color:#04AA6D;
+}
+
+.navbar {
+    margin-left: auto;
+    margin-right: auto;
+    height: 60px;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align:center;
+}
+
+/* Style the links inside the navigation bar */
+.nav-link {
+    float: left;
+    color: #333;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    border: none;
+    background-color: white;
+}
+
+/* Style the link of active page inside the navigation bar */
+.nav-link.active {
+    color: #04AA6D;
+    font-weight: bold;
+}
+
+/* Change the color of links on hover */
+.nav-link:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+}
+
+/* Style thinner columns, usually on left */
+#left {
+    width: 35%;
+    background: #FFFAF0;
+    height: 100%;
+    overflow-y: scroll;
+    box-sizing: border-box;
+    padding: 0.5em;
+    display: inline-block;
+}
+
+/* Style wider columns, usually on right */
+#right {
+    width: 60%;
+    overflow-y: scroll;
+    display: inline-block;
+    text-align: left;
+    padding: 20px;
+}
+
+#home-right {
+    width: 60%;
+    overflow-y: scroll;
+    display: inline-block;
+}
+
+/* Style main headings */
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 48px;
+    margin-bottom: 40px;
+}
+
+/* for widths less than or equal to 629 pixels */
+@media only screen and (max-width: 629px) {
+    .topdivider {
+        height: 7px;
+    }
+    .nav-link {
+        font-size: 10px;
+    }
+    h1 {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+    #left {
+      float: none ;
+      width: 100% ;
+      padding: 2em;
+    }
+    #right {
+      float: none ;
+      width: 100% ;
+    }
+}

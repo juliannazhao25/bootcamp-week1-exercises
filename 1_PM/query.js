@@ -101,24 +101,91 @@ dont hard code solutions. */
 
 // Implement the function usersByPet to return a list of user objects filtered by cat or dog.
 const usersByPet = pet => {
+  result = []
+  database.users.forEach(element => {
+    if (element.favPet === pet) {
+      result.push(element)
+    }
+  });
+  return result
 }
 console.log(usersByPet('dog'))
 console.log(usersByPet('cat'))
 
 // Implement the function collegeLookup to return the name and color of a user's college.
 const collegeLookup = user => {
+  let colId = null
+  let result = {}
+  database.users.forEach(element => {
+    if (element.firstName === user) {
+      colId = element.collegeId
+    }
+  })
+  database.college.forEach(element => {
+    if (element.id === colId) {
+      const {id, name, state, color} = element
+      result = {name, color}
+    }
+  })
+  return result
 }
 console.log(collegeLookup('Charles'))
 console.log(collegeLookup('Daniela'))
 
 // define oppositesAttract as a list of friend objects whose favorite pets are different.
-const oppositesAttract = _______
+const oppositesAttract = (function() {
+  const result = []
+  database.friends.forEach(element => {
+    let pet1 = ''
+    let pet2 = ''
+    database.users.forEach(elmt => {
+      if (elmt.id === element.id1) {
+        pet1 = elmt.favPet
+      }
+      else if (elmt.id === element.id2) {
+        pet2 = elmt.favPet
+      }
+    })
+    if (pet1 !== pet2) {
+      result.push(element)
+    }
+  })
+  return result
+})(); 
 console.log(oppositesAttract)
 
 // define local as a list of users who live in the same state as they go to school.
-const local = _______
+const local = (function() {
+  const result = []
+  database.users.forEach(element => {
+    database.college.forEach(elmt => {
+      if (element.collegeId === elmt.id && element.state === elmt.state){
+        result.push(element)
+      }
+    })
+  })
+  return result
+})();
 console.log(local)
 
 // define collegeFriends as a list of friend objects that go to the same college
-const collegeFriends = _______
+const collegeFriends = (function() {
+  const result = []
+  database.friends.forEach(element => {
+    let college1 = ''
+    let college2 = ''
+    database.users.forEach(elmt => {
+      if (elmt.id === element.id1) {
+        college1 = elmt.collegeId
+      }
+      else if (elmt.id === element.id2) {
+        college2 = elmt.collegeId
+      }
+    })
+    if (college1 === college2) {
+      result.push(element)
+    }
+  })
+  return result
+})();
 console.log(collegeFriends)

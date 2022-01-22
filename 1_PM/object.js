@@ -10,6 +10,43 @@ const assert = require('assert')
  */
 
 const hasFalsyValue = obj => {
+  let result = false
+  Object.keys(obj).forEach((element) => {
+    if (!obj[element]){
+      result = true
+    }
+    else if (typeof obj[element] === 'string' || obj[element] instanceof String){
+      result = false
+    }
+    else if (hasFalsyValue(obj[element])){
+      result = true
+    }
+  })
+  return result
+};
+
+const basicTest = {
+  a: 123,
+  b: 123,
+  c: 123,
+  d: {
+    e: 123,
+    f: {
+      g: 0
+    }
+  }
+};
+
+const basicTest2 = {
+  a: "I am falsy somewhere...",
+  b: 23,
+  c: true,
+  d: {
+    e: 'nuthin to look at here...0',
+    f: {
+      g: 'hello'
+    }
+  }
 };
 
 const falsyObj = {
@@ -33,5 +70,7 @@ const truthyObj = {
   }
 };
 
+assert(hasFalsyValue(basicTest) === true);
+assert(hasFalsyValue(basicTest2) === false);
 assert(hasFalsyValue(falsyObj) === true);
 assert(hasFalsyValue(truthyObj) === false);
